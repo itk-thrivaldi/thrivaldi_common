@@ -6,10 +6,12 @@
   <arg name="rsi_gantry" default="false" />
   <arg name="kvp_floor" default="false" />
   <arg name="kvp_gantry" default="false" />
-$(find robotlab_support)
+  
   <!-- Used to enable or disable toolchanger node -->
-  <arg name="sws_floor" default="true" />
-  <arg name="sws_gantry" default="true" />
+  <arg name="sws_floor" default="true" unless="$(arg sim_floor)"/>
+  <arg name="sws_gantry" default="true" unless="$(arg sim_gantry)"/>
+  <arg name="sws_floor" default="false" if="$(arg sim_floor)"/>
+  <arg name="sws_gantry" default="false" if="$(arg sim_gantry)"/>
 
   <!-- RSI driver -->
   <include file="$(find robotlab_support)/launch/load_rsi.launch">

@@ -16,6 +16,7 @@
     <node name="kuka_hardware_interface_rsi" pkg="kuka_rsi_hw_interface" type="kuka_hardware_interface_node" respawn="false" output="screen" required="true"/>
     <!-- Load joint controller configurations from YAML file to parameter server -->
     <rosparam file="$(find robotlab_support)/config/floor/hardware_controllers.yaml" command="load"/>
+    <rosparam file="$(find robotlab_support)/config/floor/ftc_controller.yaml" command="load"/>
     <!-- Load floor controller joint names from YAML file to parameter server -->
     <rosparam file="$(find robotlab_support)/config/floor/controller_joint_names.yaml" command="load"/>
     <!-- Load controllers -->
@@ -36,12 +37,13 @@
     <node name="kuka_hardware_interface_rsi" pkg="kuka_rsi_hw_interface" type="kuka_hardware_interface_node" respawn="false" output="screen" required="true"/>
     <!-- Load joint controller configurations from YAML file to parameter server -->
     <rosparam file="$(find robotlab_support)/config/gantry/hardware_controllers.yaml" command="load"/>
+    <rosparam file="$(find robotlab_support)/config/gantry/ftc_controller.yaml" command="load"/>
     <!-- Load gantry controller joint names from YAML file to parameter server -->
     <rosparam file="$(find robotlab_support)/config/gantry/controller_joint_names.yaml" command="load"/>
     <!-- Load controllers -->
     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="force_torque_sensor_controller position_trajectory_controller joint_state_controller --shutdown-timeout 1"/>
     <!-- Load RSI simulation node -->
-    <node name="kuka_rsi_simulator" pkg="kuka_rsi_simulator" type="kuka_rsi_simulator" args="127.0.0.1 49153"/>
+    <node name="kuka_rsi_simulator" pkg="kuka_rsi_simulator" type="kuka_rsi_simulator" args="127.0.0.1 49153 --external_axes=True"/>
   </group>
 
 </launch>
