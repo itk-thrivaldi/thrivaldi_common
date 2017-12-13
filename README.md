@@ -45,4 +45,4 @@ Packages for using the KUKA Robotics lab at Department of Engineering Cybernetic
 
 8. ### Test 
 
- ```roslaunch robotlab_moveit_config moveit_planning_execution.launch sim:=true```
+ ```roslaunch robotlab_moveit_config moveit_planning_execution_kvp.launch sim:=true```
