@@ -46,7 +46,7 @@
     <group_state name="folded" group="floor_manipulator">
         <joint name="floor_joint_a1" value="1.5708" />
         <joint name="floor_joint_a2" value="-2.5900" />
-        <joint name="floor_joint_a3" value="2.5800" />
+        <joint name="floor_joint_a3" value="2.400" />
         <joint name="floor_joint_a4" value="0" />
         <joint name="floor_joint_a5" value="0.800" />
         <joint name="floor_joint_a6" value="0" />
@@ -64,7 +64,7 @@
     <group_state name="folded" group="gantry_manipulator">
         <joint name="gantry_joint_a1" value="-1.5708" />
         <joint name="gantry_joint_a2" value="-2.5900" />
-        <joint name="gantry_joint_a3" value="2.5800" />
+        <joint name="gantry_joint_a3" value="2.400" />
         <joint name="gantry_joint_a4" value="0" />
         <joint name="gantry_joint_a5" value="0.800" />
         <joint name="gantry_joint_a6" value="0" />
@@ -91,7 +91,7 @@
     <group_state name="folded" group="gantry_with_manipulator">
         <joint name="gantry_joint_a1" value="-1.5708" />      
         <joint name="gantry_joint_a2" value="-2.5900" />
-        <joint name="gantry_joint_a3" value="2.5800" />
+        <joint name="gantry_joint_a3" value="2.4800" />
         <joint name="gantry_joint_a4" value="0" />
         <joint name="gantry_joint_a5" value="0.800" />
         <joint name="gantry_joint_a6" value="0" />
@@ -121,13 +121,13 @@
       <group_state name="folded" group="robot">
         <joint name="floor_joint_a1" value="1.5708" />
         <joint name="floor_joint_a2" value="-2.5900" />
-        <joint name="floor_joint_a3" value="2.5800" />
+        <joint name="floor_joint_a3" value="2.400" />
         <joint name="floor_joint_a4" value="0" />
         <joint name="floor_joint_a5" value="0.800" />
         <joint name="floor_joint_a6" value="0" />
         <joint name="gantry_joint_a1" value="-1.5708" />      
         <joint name="gantry_joint_a2" value="-2.5900" />
-        <joint name="gantry_joint_a3" value="2.5800" />
+        <joint name="gantry_joint_a3" value="2.400" />
         <joint name="gantry_joint_a4" value="0" />
         <joint name="gantry_joint_a5" value="0.800" />
         <joint name="gantry_joint_a6" value="0" />
