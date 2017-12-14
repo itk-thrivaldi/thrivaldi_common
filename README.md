@@ -26,9 +26,6 @@ Packages for using the KUKA Robotics lab at Department of Engineering Cybernetic
    
    ```git clone https://github.com/itk-thrivaldi/kuka_experimental.git```
   
-   2. Install the bio-ik kinematics solver from TAMS-group
-  
-   ```git clone https://github.com/TAMS-Group/bio_ik.git```
   
    3. URDF and other needed packages
   
