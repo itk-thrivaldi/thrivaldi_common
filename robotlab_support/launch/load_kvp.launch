@@ -5,6 +5,8 @@
 
   <!-- Floor robot stuff -->
   <group ns="floor" if="$(arg floor)">
+    <!-- Do remapping to fit ROS industrial namespace -->
+    <remap from="follow_joint_trajectory" to="joint_trajectory_action" />
     <!-- load controller parameters -->
     <rosparam file="$(find robotlab_support)/config/floor/kvp_params.yaml" command="load"/>
     <!-- start controller-->
@@ -20,7 +22,9 @@
 
    <!-- Floor robot stuff -->
   <group ns="gantry" if="$(arg gantry)">
-    <!-- load controller parameters -->
+   <!-- Do remapping to fit ROS industrial namespace -->
+   <remap from="follow_joint_trajectory" to="joint_trajectory_action" />
+   <!-- load controller parameters -->
     <rosparam file="$(find robotlab_support)/config/gantry/kvp_params.yaml" command="load"/>
     <!-- start controller-->
     <node name="kuka_trajectory_interface" pkg="kuka_kvp_hw_interface" type="kvp_joint_trajectory_node" respawn="false" output="screen" required="true"/>
