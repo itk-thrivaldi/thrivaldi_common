@@ -9,7 +9,7 @@
   </group>
 
   <group ns="gantry" if="$(arg gantry)">
-    <rosparam file="$(find robotlab_support)/config/floor/sws_params.yaml" command="load" />
+    <rosparam file="$(find robotlab_support)/config/gantry/sws_params.yaml" command="load" />
     <node name="kuka_kvp_sws_interface" pkg="kuka_kvp_hw_interface" type="kvp_sws_node" respawn="false" output="screen" required="true" />
   </group>
 </launch>

@@ -15,7 +15,7 @@
   </group>
 
   <group ns="gantry" if="$(arg gantry)">
-    <remap from="/floor/ftc/ft_sensor/raw" to="/floor/ft_sensor/raw"/>
+    <remap from="/gantry/ftc/ft_sensor/raw" to="/gantry/ft_sensor/raw"/>
     <group ns="ftc">
      <rosparam file="$(find robotlab_support)/config/gantry/kvp_params.yaml" command="load" />
       <rosparam file="$(find robotlab_support)/config/gantry/ftc_controller.yaml" command="load"/>
