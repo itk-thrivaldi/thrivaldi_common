@@ -9,7 +9,7 @@
     <group ns="ftc">
       <rosparam file="$(find robotlab_support)/config/floor/kvp_params.yaml" command="load" />
       <rosparam file="$(find robotlab_support)/config/floor/ftc_controller.yaml" command="load"/>
-      <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="force_torque_sensor_controller --shutdown-timeout 1"/>
+      <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="force_torque_sensor_controller"/>
       <node name="kuka_kvp_ftc_interface" pkg="kuka_kvp_hw_interface" type="kvp_ftc_node" respawn="false" output="screen" required="true"/>
     </group>
   </group>
@@ -19,7 +19,7 @@
     <group ns="ftc">
      <rosparam file="$(find robotlab_support)/config/gantry/kvp_params.yaml" command="load" />
       <rosparam file="$(find robotlab_support)/config/gantry/ftc_controller.yaml" command="load"/>
-      <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="force_torque_sensor_controller --shutdown-timeout 1"/>
+      <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="force_torque_sensor_controller"/>
       <node name="kuka_kvp_ftc_interface" pkg="kuka_kvp_hw_interface" type="kvp_ftc_node" respawn="false" output="screen" required="true"/>
     </group>
   </group>
