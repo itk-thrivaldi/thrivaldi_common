@@ -20,9 +20,9 @@
     <!-- Load floor controller joint names from YAML file to parameter server -->
     <rosparam file="$(find robotlab_support)/config/floor/controller_joint_names.yaml" command="load"/>
     <!-- Load default controllers -->
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="force_torque_sensor_controller position_trajectory_controller joint_state_controller --shutdown-timeout 1"/>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="force_torque_sensor_controller position_trajectory_controller joint_state_controller"/>
     <!-- Load stopped controllers -->
-    <node name="controller_spawner_stopped" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="--stopped joint_position_controller --shutdown-timeout 1" />
+    <node name="controller_spawner_stopped" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="--stopped joint_position_controller" />
   </group>
 
   <!-- Gantry robot stuff -->
@@ -42,6 +42,6 @@
     <!-- Load controller joint names from YAML file to parameter server -->
     <rosparam file="$(find robotlab_support)/config/gantry/controller_joint_names.yaml" command="load"/>
     <!-- Load controllers -->
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="force_torque_sensor_controller position_trajectory_controller joint_state_controller --shutdown-timeout 1"/>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="force_torque_sensor_controller position_trajectory_controller joint_state_controller"/>
   </group>
 </launch>
