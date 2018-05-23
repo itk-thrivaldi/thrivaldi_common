@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
+  <include file="$(find robotlab_support)/launch/load_robotlab.launch" />
 	<include file="$(find robotlab_support)/launch/robot_interface_streaming_robotlab.launch" >
 		<arg name="sim_floor"   value="true" />
 		<arg name="sim_gantry" value="true" />
-	</include>
+  </include>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robotlab_support)/config/rviz.rviz" required="true" />
 </launch>
