@@ -43,6 +43,11 @@
     <arg name="floor" value="$(arg kvp_floor)" />
   </include>
 
+  <!-- Setup KVP Variable interface -->
+  <include file="$(find robotlab_support)/launch/load_variable_interface.launch">
+    <arg name="gantry" value="$(arg sws_gantry)" />
+    <arg name="floor" value="$(arg sws_floor)" />
+  </include>
 
   <!-- Use joint_state_publisher to merge joint_states from both controllers -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
