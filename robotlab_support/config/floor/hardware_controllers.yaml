@@ -1,7 +1,7 @@
 #Publish all joint states
 joint_state_controller:
   type: joint_state_controller/JointStateController
-  publish_rate: 80
+  publish_rate: 83
 
 # Joint trajectory controller
 position_trajectory_controller:
@@ -27,4 +27,4 @@ joint_position_controller:
     - floor_joint_a4
     - floor_joint_a5
     - floor_joint_a6
-  state_publish_rate: 80 # Defaults to 50
+  state_publish_rate: 83 # Defaults to 50

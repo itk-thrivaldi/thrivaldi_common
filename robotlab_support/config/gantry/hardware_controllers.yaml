@@ -17,3 +17,18 @@ position_trajectory_controller:
     - gantry_joint_e3
   state_publish_rate: 50 # Defaults to 50
   action_monitor_rate: 20 # Defaults to 20
+
+# Joint position controller
+joint_position_controller:
+  type: "position_controllers/JointGroupPositionController"
+  joints:
+    - gantry_joint_a1
+    - gantry_joint_a2
+    - gantry_joint_a3
+    - gantry_joint_a4
+    - gantry_joint_a5
+    - gantry_joint_a6
+    - gantry_joint_e1
+    - gantry_joint_e2
+    - gantry_joint_e3
+  state_publish_rate: 80 # Defaults to 50
