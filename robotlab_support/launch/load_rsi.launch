@@ -43,5 +43,6 @@
     <rosparam file="$(find robotlab_support)/config/gantry/controller_joint_names.yaml" command="load"/>
     <!-- Load controllers -->
     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="force_torque_sensor_controller position_trajectory_controller joint_state_controller --shutdown-timeout 1"/>
+    <!-- Load stopped controllers -->
   </group>
 </launch>
