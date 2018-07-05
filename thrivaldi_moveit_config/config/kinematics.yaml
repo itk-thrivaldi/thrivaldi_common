@@ -1,5 +1,5 @@
 floor_manipulator:
-  kinematics_solver: robotlab_floor_manipulator_kinematics/IKFastKinematicsPlugin
+  kinematics_solver: thrivaldi_floor_manipulator_kinematics/IKFastKinematicsPlugin
   kinematics_solver_attempts: 3
   kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.005
@@ -9,7 +9,7 @@ gantry:
   kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.005
 gantry_manipulator:
-  kinematics_solver: robotlab_gantry_manipulator_kinematics/IKFastKinematicsPlugin
+  kinematics_solver: thrivaldi_gantry_manipulator_kinematics/IKFastKinematicsPlugin
   kinematics_solver_attempts: 3
   kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.005
