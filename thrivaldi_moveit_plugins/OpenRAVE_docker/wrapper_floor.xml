@@ -1,0 +1,6 @@
+<robot file="thrivaldi.dae">
+  <Manipulator name="thrivaldi">
+    <base>floor_base_link</base>
+    <effector>floor_tool0</effector>
+  </Manipulator>
+</robot>

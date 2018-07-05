@@ -1,6 +1,0 @@
-<robot file="robotlab.dae">
-  <Manipulator name="robotlab">
-    <base>gantry_base_link</base>
-    <effector>gantry_tool0</effector>
-  </Manipulator>
-</robot>

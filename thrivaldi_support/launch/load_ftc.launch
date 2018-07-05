@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+  <!-- This file is only used for the KVP controller, as the RSI controller handles the FTC sensor internaly -->
+  <arg name="floor" default="true"/>
+  <arg name="gantry" default="true"/>
+
+  <group ns="floor" if="$(arg floor)">
+    <remap from="/floor/ftc/ft_sensor/raw" to="/floor/ft_sensor/raw"/>
+    <group ns="ftc">
+      <rosparam file="$(find thrivaldi_support)/config/floor/kvp_params.yaml" command="load" />
+      <rosparam file="$(find thrivaldi_support)/config/floor/ftc_controller.yaml" command="load"/>
+      <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="force_torque_sensor_controller --shutdown-timeout 1"/>
+      <node name="kuka_kvp_ftc_interface" pkg="kuka_kvp_hw_interface" type="kvp_ftc_node" respawn="false" output="screen" required="true"/>
+    </group>
+  </group>
+
+  <group ns="gantry" if="$(arg gantry)">
+    <remap from="/floor/ftc/ft_sensor/raw" to="/floor/ft_sensor/raw"/>
+    <group ns="ftc">
+     <rosparam file="$(find thrivaldi_support)/config/gantry/kvp_params.yaml" command="load" />
+      <rosparam file="$(find thrivaldi_support)/config/gantry/ftc_controller.yaml" command="load"/>
+      <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="force_torque_sensor_controller --shutdown-timeout 1"/>
+      <node name="kuka_kvp_ftc_interface" pkg="kuka_kvp_hw_interface" type="kvp_ftc_node" respawn="false" output="screen" required="true"/>
+    </group>
+  </group>
+
+
+</launch>

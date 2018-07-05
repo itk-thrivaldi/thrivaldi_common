@@ -1,6 +1,0 @@
-<robot file="robotlab.dae">
-  <Manipulator name="robotlab">
-    <base>floor_base_link</base>
-    <effector>floor_tool0</effector>
-  </Manipulator>
-</robot>

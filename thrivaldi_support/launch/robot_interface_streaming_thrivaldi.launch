@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+  <arg name="sim_floor" default="false"/>
+  <arg name="sim_gantry" default="false"/>
+  <arg name="rsi_floor" default="false" />
+  <arg name="rsi_gantry" default="false" />
+  <arg name="kvp_floor" default="false" />
+  <arg name="kvp_gantry" default="false" />
+  
+  <!-- Used to enable or disable toolchanger node -->
+  <arg name="sws_floor" default="true" unless="$(arg sim_floor)"/>
+  <arg name="sws_gantry" default="true" unless="$(arg sim_gantry)"/>
+  <arg name="sws_floor" default="false" if="$(arg sim_floor)"/>
+  <arg name="sws_gantry" default="false" if="$(arg sim_gantry)"/>
+
+  <!-- RSI driver -->
+  <include file="$(find thrivaldi_support)/launch/load_rsi.launch">
+    <arg name="gantry" value="$(arg rsi_gantry)" />
+    <arg name="floor" value="$(arg rsi_floor)" />
+  </include>
+
+  <!-- KVP driver -->
+  <include file="$(find thrivaldi_support)/launch/load_kvp.launch">
+    <arg name="gantry" value="$(arg kvp_gantry)" />
+    <arg name="floor" value="$(arg kvp_floor)" />
+  </include>
+
+  <!-- Simulation using RSI driver -->
+  <include file="$(find thrivaldi_support)/launch/load_sim.launch">
+    <arg name="gantry" value="$(arg sim_gantry)" />
+    <arg name="floor" value="$(arg sim_floor)" />
+  </include>
+
+ <!-- KVP toolchanger node -->
+  <include file="$(find thrivaldi_support)/launch/load_sws.launch">
+    <arg name="gantry" value="$(arg sws_gantry)" />
+    <arg name="floor" value="$(arg sws_floor)" />
+  </include>
+
+ <!-- Load KVP FTC node if KVP driver is used -->
+  <include file="$(find thrivaldi_support)/launch/load_ftc.launch">
+    <arg name="gantry" value="$(arg kvp_gantry)" />
+    <arg name="floor" value="$(arg kvp_floor)" />
+  </include>
+
+  <!-- Setup KVP Variable interface -->
+  <include file="$(find thrivaldi_support)/launch/load_variable_interface.launch">
+    <arg name="gantry" value="$(arg sws_gantry)" />
+    <arg name="floor" value="$(arg sws_floor)" />
+  </include>
+
+  <!-- Use joint_state_publisher to merge joint_states from both controllers -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+      <rosparam param="source_list">["/gantry/joint_states","/floor/joint_states"]</rosparam>
+      <param name="rate" value="80" />
+   </node>
+</launch>

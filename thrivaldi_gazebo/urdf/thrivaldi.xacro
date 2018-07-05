@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="thrivaldi">
+  <xacro:include filename="$(find thrivaldi_gazebo)/urdf/thrivaldi_macro.xacro"/>
+  <xacro:thrivaldi_gazebo prefix=""/>
+  <!-- Fix robot to Gazebo world -->
+  <link name="world"/>
+  <joint name="world-base_link-fixed" type="fixed">
+    <parent link="world"/>
+    <child link="root"/>
+    <origin xyz="0.0 0.0 0.015" rpy="0.0 0.0 0.0"/>
+  </joint>
+</robot>

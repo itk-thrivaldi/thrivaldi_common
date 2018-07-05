@@ -1,0 +1,13 @@
+<launch>
+  <!-- load the joint state controller -->
+  <rosparam file="$(find thrivaldi_gazebo)/config/joint_state_controller.yaml" command="load" />
+  <node name="joint_state_controller_spawner" pkg="controller_manager" type="spawner" args="joint_state_controller" />
+
+  <!-- load the position trajectory controller -->
+  <!-- <rosparam file="$(find thrivaldi_gazebo)/config/joint_trajectory_controller.yaml" command="load"/> -->
+  <!-- <node name="joint_trajectory_controller_spawner" pkg="controller_manager" type="spawner" args="position_trajectory_controller" /> -->
+
+  <!-- load the position joint controller -->
+  <rosparam file="$(find thrivaldi_gazebo)/config/joint_position_controller.yaml" command="load"/>
+  <node name="spawn_position_controllers" pkg="controller_manager" type="spawner" args="gantry_joint_a1_controller gantry_joint_a2_controller gantry_joint_a3_controller gantry_joint_a4_controller gantry_joint_a5_controller gantry_joint_a6_controller gantry_joint_e1_controller gantry_joint_e2_controller gantry_joint_e3_controller floor_joint_a1_controller floor_joint_a2_controller floor_joint_a3_controller floor_joint_a4_controller floor_joint_a5_controller floor_joint_a6_controller"/>
+</launch>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<launch>
+   <param name="robot_description"  command="$(find xacro)/xacro --inorder '$(find thrivaldi_support)/urdf/thrivaldi.xacro'" />
+ </launch>

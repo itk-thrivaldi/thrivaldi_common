@@ -1,0 +1,6 @@
+<robot file="thrivaldi.dae">
+  <Manipulator name="thrivaldi">
+    <base>gantry_base_link</base>
+    <effector>gantry_tool0</effector>
+  </Manipulator>
+</robot>

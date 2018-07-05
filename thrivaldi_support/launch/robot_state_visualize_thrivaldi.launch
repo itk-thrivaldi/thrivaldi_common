@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+	<include file="$(find thrivaldi_support)/launch/robot_interface_streaming_thrivaldi.launch" >
+		<arg name="sim_floor"   value="true" />
+		<arg name="sim_gantry" value="true" />
+	</include>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find thrivaldi_support)/config/rviz.rviz" required="true" />
+</launch>

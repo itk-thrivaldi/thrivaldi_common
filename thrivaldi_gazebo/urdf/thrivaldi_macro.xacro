@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Load needed macros -->
+  <!-- Get the thrivaldi macro from support to generate the urdf of the robots -->
+  <xacro:include filename="$(find thrivaldi_support)/urdf/thrivaldi_macro.xacro"/>
+  <!-- Get the transmissions to get control of the joints -->
+  <xacro:include filename="$(find kuka_kr16_gazebo)/urdf/kr16_2_transmission_macro.xacro"/>
+  <xacro:include filename="$(find gantry_gazebo)/urdf/gantry_transmission_macro.xacro"/>
+  <!-- Load gazebo_ros_control plugin -->
+  <xacro:include filename="$(find thrivaldi_gazebo)/urdf/gazebo.xacro"/>
+  <!-- Load gravity config for gantry and KR16 -->
+  <xacro:include filename="$(find gantry_gazebo)/urdf/gantry_gravity_macro.xacro"/>
+  <xacro:include filename="$(find kuka_kr16_gazebo)/urdf/kr16_2_gravity_macro.xacro"/>
+  <!-- Load colors for utility plates -->
+  <xacro:include filename="$(find thrivaldi_gazebo)/urdf/utility_plate_gazebo_macro.xacro"/>
+  <!-- Done loading macros -->
+  <!-- Make the Gazebo version of the thrivaldi macro  -->
+  <xacro:macro name="thrivaldi_gazebo" params="prefix">
+    <!-- load robots -->
+    <xacro:thrivaldi prefix="${prefix}"/>
+    <!-- Utility plate colors -->
+    <xacro:A1_plate_gazebo prefix="${prefix}gantry_"/>
+    <xacro:A3_box_gazebo prefix="${prefix}gantry_"/>
+    <xacro:A1_plate_gazebo prefix="${prefix}floor_"/>
+    <xacro:A3_box_gazebo prefix="${prefix}floor_"/>
+    <!-- load transmission files for gantry and KR16 -->
+    <xacro:gantry_transmission prefix="${prefix}gantry_"/>
+    <xacro:kr16_2_transmission prefix="${prefix}gantry_"/>
+    <xacro:kr16_2_transmission prefix="${prefix}floor_"/>
+    <!-- Load gravity settings -->
+    <!-- The robots only have position control. It compensates for gravity using servo and breaks -->
+    <xacro:gantry_gravity prefix="${prefix}gantry_"/>
+    <xacro:kr16_2_gravity prefix="${prefix}gantry_"/>
+    <xacro:kr16_2_gravity prefix="${prefix}floor_"/>
+    <gazebo reference="${prefix}root">
+      <static>true</static>
+    </gazebo>
+    <!-- ros_control plugin loaded from kr_16 file-->
+  </xacro:macro>
+</robot>
