@@ -1,5 +1,5 @@
 controller_list:
-  - name: /floor/
+  - name: /floor
     action_ns: joint_trajectory_action
     default: true
     type: FollowJointTrajectory
