@@ -16,6 +16,6 @@ position_trajectory_controller:
       - gantry_joint_e1
       - gantry_joint_e2
       - gantry_joint_e3
-    state_publish_rate: 50 # Defaults to 50
+    state_publish_rate: 83 # Defaults to 50
     action_monitor_rate: 20 # Defaults to 20
 
