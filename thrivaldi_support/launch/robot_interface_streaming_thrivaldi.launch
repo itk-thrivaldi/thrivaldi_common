@@ -13,6 +13,12 @@
   <arg name="sws_floor" default="false" if="$(arg sim_floor)"/>
   <arg name="sws_gantry" default="false" if="$(arg sim_gantry)"/>
 
+  <!-- Used to enable or disable toolchanger node -->
+  <arg name="kvp_var_floor" default="true" unless="$(arg sim_floor)"/>
+  <arg name="kvp_var_gantry" default="true" unless="$(arg sim_gantry)"/>
+  <arg name="kvp_var_floor" default="false" if="$(arg sim_floor)"/>
+  <arg name="kvp_var_gantry" default="false" if="$(arg sim_gantry)"/>
+  
   <!-- RSI driver -->
   <include file="$(find thrivaldi_support)/launch/load_rsi.launch">
     <arg name="gantry" value="$(arg rsi_gantry)" />
@@ -45,8 +51,8 @@
 
   <!-- Setup KVP Variable interface -->
   <include file="$(find thrivaldi_support)/launch/load_variable_interface.launch">
-    <arg name="gantry" value="$(arg sws_gantry)" />
-    <arg name="floor" value="$(arg sws_floor)" />
+    <arg name="gantry" value="$(arg kvp_var_gantry)" />
+    <arg name="floor" value="$(arg kvp_var_floor)" />
   </include>
 
   <!-- Use joint_state_publisher to merge joint_states from both controllers -->
